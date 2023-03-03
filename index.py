@@ -159,4 +159,4 @@ if __name__ == '__main__':
         port = int(os.getenv("PORT"))
 
     # Serve app from specified port
-    app.run_server(host='0.0.0.0', port = port, debug = False)
+    app.run_server(host='127.0.0.1', port = port, debug = False)
