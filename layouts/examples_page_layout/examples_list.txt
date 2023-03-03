@@ -1,0 +1,5 @@
+Example 1: Live Oxygen dataset
+Example 2: Completely static oxygen dataset
+Example 3: Line plot with stock data
+Example 4: Wine data histograms
+Example 5: Iris dataset PCA/LDA
