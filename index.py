@@ -157,6 +157,9 @@ if __name__ == '__main__':
         port = 5000
     else:
         port = int(os.getenv("PORT"))
-
+    
+    print(os.getenv("HOST"))
+    print(os.getenv("PORT"))
+    
     # Serve app from specified port
-    app.run_server(host='127.0.0.1', port = port, debug = False)
+    app.run_server(host='0.0.0.0', port = port, debug = False)
