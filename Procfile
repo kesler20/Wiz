@@ -1,1 +1,1 @@
-web: python index.py
+web: gunicorn --bind:0.0.0.0:5000 index:app.server
