@@ -59,18 +59,13 @@ app.layout = serve_layout()
     ],
 )
 def display_page(pathname, authenticate):
-    # Check to see if the password is correct
-    if authenticate == 'correct':
-        is_authenticated = True
-    else:
-        is_authenticated = False
 
     # Direct user to correct layout (page)
-    if pathname == '/' and is_authenticated:
+    if pathname == '/':
         return app_main.layout()
-    elif pathname == '/lines' and is_authenticated:
+    elif pathname == '/lines':
         return lines.layout()
-    elif pathname == '/pca' and is_authenticated:
+    elif pathname == '/pca':
         return pca.layout()
     elif pathname == '/':
         return home.layout()

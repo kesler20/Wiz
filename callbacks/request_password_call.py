@@ -36,6 +36,10 @@ def email_password(n_clicks,first_name, last_name, email, radio):
         radio = 'Industry'
     else:
         radio = 'Other'
+    
+    if first_name is None:
+        return '','','',1
+    
 
     # Open file to write user data
     file = open('user_data/list_of_users.txt','a+')
@@ -50,10 +54,10 @@ def email_password(n_clicks,first_name, last_name, email, radio):
     file.close()
 
     # Email password to user
-    receivers = ['p.moghadam@sheffield.ac.uk', 'wizshef@gmail.com']
+    receivers = ['p.moghadam@sheffield.ac.uk', 'wizapp4.0@gmail.com']
     # receivers = ['YOUR EMAIL HERE'] # for testing
     server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.login("wizshef", "wizpassword")
+    server.login('wizapp4.0', "wizapp2023")
 
     # Send message with password to user
     # msg = EmailMessage()
@@ -67,7 +71,7 @@ def email_password(n_clicks,first_name, last_name, email, radio):
     msg.set_content(' Hi Peyman,\n\nA user has requested access to Wiz.\n\nName: ' + first_name + ' ' +
         last_name + '\nEmail: ' + email + '\n\nBest,\nWiz Bot')
     msg['Subject'] = 'Wiz Password Request'
-    msg['From'] = 'Wiz <wizshef@gmail.com>'
+    msg['From'] = 'Wiz <wizapp4.0@gmail.com>'
     msg['To'] = receivers
 
     server.send_message(msg)
