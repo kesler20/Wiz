@@ -151,17 +151,6 @@ def download_csv():
 ##==========================================
 ## Calling index.py
 ##===========================================
-# Make Gunicorn-friendly WSGI `server` no matter what `app` actually is
-try:
-    from dash import Dash
-    if isinstance(app, Dash):
-        server = app.server       # Dash app -> underlying Flask server
-    else:
-        server = app              # Assume Flask app already
-except Exception:
-    # Fallback: if isinstance check failed due to import/circularity, still try
-    server = getattr(app, "server", app)
-
 
 if __name__ == '__main__':
     # Get the port number
