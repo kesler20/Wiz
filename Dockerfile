@@ -21,4 +21,4 @@ COPY . .
 
 # Dash/Gunicorn entrypoint (matches your logs)
 ENV PORT=5000
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "index:app.server"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "index:server"]
