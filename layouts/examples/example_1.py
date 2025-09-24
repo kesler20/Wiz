@@ -1,6 +1,6 @@
 import os
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import dash_bootstrap_components as dbc
 from layouts.global_layout import bubble_nav_logo, data_table
 from layouts.examples.example_1_layout import app_navbar, top_row, size_scale, graph, axis_select
