@@ -11,7 +11,7 @@ example_2 = pd.read_excel("static_datasets/O2_Data.xlsx", sheet_name=None)
 # ===============
 # Example 3
 # ===============
-
+TICKERS = ["AAPL", "AMZN", "NFLX", "META", "MSFT", "NVDA", "BABA", "GOOG", "TSLA"]
 series_list: list[pd.Series] = []
 for t in TICKERS:
     s = None
