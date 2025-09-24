@@ -11,36 +11,10 @@ example_2 = pd.read_excel("static_datasets/O2_Data.xlsx", sheet_name=None)
 # ===============
 # Example 3
 # ===============
-TICKERS = ["AAPL", "AMZN", "NFLX", "META", "MSFT", "NVDA", "BABA", "GOOG", "TSLA"]
-
-start = dt.date(2010, 1, 1)
-end = dt.date(2020, 6, 10)
-
-def fetch_close_series(ticker: str, start_date, end_date) -> pd.Series | None:
-    """
-    Fetch 'Close' prices for a single ticker via yfinance.
-    Returns a Series named <ticker> indexed by Date, or None on failure/empty.
-    """
-    try:
-        df = yf.download(
-            ticker,
-            start=start_date,
-            end=end_date,
-            auto_adjust=False,
-            progress=False,
-            threads=False,
-        )
-        if df is None or df.empty or "Close" not in df.columns:
-            return None
-        s = df["Close"].copy()
-        s.name = ticker  # important: avoid duplicate 'Close' column names
-        return s
-    except Exception:
-        return None
 
 series_list: list[pd.Series] = []
 for t in TICKERS:
-    s = fetch_close_series(t, start, end)
+    s = None
     if s is not None:
         series_list.append(s)
     else:
