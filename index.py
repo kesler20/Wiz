@@ -151,7 +151,16 @@ def download_csv():
 ##==========================================
 ## Calling index.py
 ##===========================================
-server = app.server
+def server():
+    # Get the port number
+    if os.getenv("PORT") is None:
+        port = 5000
+    else:
+        port = int(os.getenv("PORT"))
+    
+    # Serve app from specified port
+    app.run_server(host='0.0.0.0', port = port)
+
 if __name__ == '__main__':
     # Get the port number
     if os.getenv("PORT") is None:
